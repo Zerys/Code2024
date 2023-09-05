@@ -702,7 +702,7 @@
 </table> -->
 <!-- Dynamically Generated Table #End# -->
 
-<table id="dataTable" style="display: none;" class="table table-striped country">
+<table id="dataTable" style="display: none;" class="table table-striped numbers">
       <thead>
           <tr><th></th><th>Question</th><th>Your Answer</th>
       </thead>
@@ -846,6 +846,7 @@
 
     // Initialize array
     var UserChoices = [];
+    var UserChoiceID =[];
 
 
     // Stage #1 - Call functions //
@@ -1005,7 +1006,7 @@
       var loadingcontainer = document.getElementById("loading-container");
       // Display loading circle
       LoadingAnimation.style.display = "block";
-        var sec = 0.3;
+        var sec = 0.1;
         var timer = setInterval(function(){
               sec--;
               if (sec < 0) {
@@ -1053,25 +1054,21 @@
 // }
 
 $(document).ready(function(){
-    var country = ["1", "2", "3", "4", "5"];
-    var capital = ["Oslo", "Stockholm" , "Copenhagen"];
+    var numbers = ["1", "2", "3", "4", "5"];
     UserQuestions = ["What type of water system do you have?", "What is your incoming flow rate?", "Do you have 0.5 bar or more pressure coming in to your home?", "How many bathrooms and en-suites do you have in your home?", "How many people live in your home?"];
-    UserChoiceID = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     var bodyString = '';
-    $.each(country, function(index, country) {
-        // bodyString += ('<tr><td>'+country+'</td><td>'+JSON.stringify([UserQuestions[index]], null, 4)+JSON.stringify([UserChoices[index]], null, 4)+'</td></tr>');
-        bodyString += ('<tr> <th>'+country+'</th>'+'<th>'+UserQuestions[index]+'</th>'+'<th>' +JSON.stringify(UserChoices[index], null, 4)+'</th> </tr>');
+    $.each(numbers, function(index, numbers) {
+        bodyString += ('<tr> <th>'+numbers+'</th>'+'<th>'+UserQuestions[index]+'</th>'+'<th>' +JSON.stringify(UserChoices[index], null, 4)+'</th> </tr>');
     });
-    $('.country tbody').html(bodyString);
-    
+    $('.numbers tbody').html(bodyString);
     });
 
     }  // Code end
 
     // Stage #5 Ends
 
-<br><br>
+
 
     // Stage #1 - User Clicks on Info buttons above cards to popup help window.
     function HelpOnClick1() {
@@ -1358,17 +1355,23 @@ $(document).ready(function(){
 
     // Array Stage #1 Starts//
     function AddUserInputStage1a() {
+      UserChoiceID.push(1);
+      console.log(UserChoiceID);
       // Create object and add the object to the end of the array
       UserChoices.push('I have a combi-boiler system.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage1b() {
+      UserChoiceID.push(2);
+      console.log(UserChoiceID);
       UserChoices.push('A gravity fed system.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage1c() {
+      UserChoiceID.push(3);
+      console.log(UserChoiceID);
       UserChoices.push('A unvented system.');
       console.log(UserChoices);
     }
@@ -1376,17 +1379,23 @@ $(document).ready(function(){
 
     // Array Stage #2 Starts //
     function AddUserInputStage2a() {
+      UserChoiceID.push(4);
+      console.log(UserChoiceID);
       // Create object and add the object to the end of the array
       UserChoices.push('I have less than 12 liters a minute in water flow.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage2b() {
+      UserChoiceID.push(5);
+      console.log(UserChoiceID);
       // UserChoices.push('Unsure');
       console.log(UserChoices);
     }
 
     function AddUserInputStage2c() {
+      UserChoiceID.push(6);
+      console.log(UserChoiceID);
       UserChoices.push('I have more than 12 liters a minute in water flow.');
       console.log(UserChoices);
     }
@@ -1394,12 +1403,16 @@ $(document).ready(function(){
 
     // Array Stage #3 Starts //
     function AddUserInputStage3a() {
+      UserChoiceID.push(7);
+      console.log(UserChoiceID);
       // Create object and add the object to the end of the array
       UserChoices.push('I have greater than 0.5 Bar in water pressure.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage3b() {
+      UserChoiceID.push(8);
+      console.log(UserChoiceID);
       UserChoices.push('I have less than 0.5 Bar in water pressure.');
       console.log(UserChoices);
     }
@@ -1407,6 +1420,8 @@ $(document).ready(function(){
 
     // Array Stage #4 Starts //
     function AddUserInputStage4a() {
+      UserChoiceID.push(9);
+      console.log(UserChoiceID);
       var aShowers = document.getElementById('Number-Shower').value;
       var aBaths = document.getElementById('Number-Bath').value;
       UserChoices.push("There is " + aShowers + " shower(s) and " + " " + aBaths + " bath(s) in my home.");
@@ -1418,6 +1433,8 @@ $(document).ready(function(){
     // Array Stage #5 Starts //
 
     function AddUserInputStage5a() {
+      UserChoiceID.push(10);
+      console.log(UserChoiceID);
       var aAdults = document.getElementById('Number-Adult').value;
       var aTeenagers = document.getElementById('Number-Teenager').value;
       UserChoices.push(aAdults + " adult(s) and " + " " + aTeenagers + " teenager(s).");
