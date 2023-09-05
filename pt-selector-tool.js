@@ -1059,10 +1059,17 @@ $(document).ready(function(){
 
     var bodyString = '';
     $.each(numbers, function(index, numbers) {
-        bodyString += ('<tr> <th>'+numbers+'</th>'+'<th>'+UserQuestions[index]+'</th>'+'<th>' +JSON.stringify(UserChoices[index], null, 4)+'</th> </tr>');
+        bodyString += ('<tr> <th>'+numbers+'</th>'+'<th>'+UserQuestions[index]+'</th>'+'<th>' +JSON.stringify(UserChoices[index], null, 2)+'</th> </tr>');
     });
     $('.numbers tbody').html(bodyString);
     });
+
+    // Show user options, how do we want them to be displayed?
+    if (Number(UserChoiceID.join('')) == 147910){
+      console.log(147910);
+    }
+
+
 
     }  // Code end
 
