@@ -846,7 +846,6 @@
 
     // Initialize array
     var UserChoices = [];
-    var UserQuestions = [];
 
 
     // Stage #1 - Call functions //
@@ -1056,21 +1055,23 @@
 $(document).ready(function(){
     var country = ["1", "2", "3", "4", "5"];
     var capital = ["Oslo", "Stockholm" , "Copenhagen"];
+    UserQuestions = ["What type of water system do you have?", "What is your incoming flow rate?", "Do you have 0.5 bar or more pressure coming in to your home?", "How many bathrooms and en-suites do you have in your home?", "How many people live in your home?"];
+    UserChoiceID = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     var bodyString = '';
-
     $.each(country, function(index, country) {
-      // +UserChoices[index]+
-        bodyString += ('<tr><td>'+country+'</td><td>'+JSON.stringify([UserChoices[index]], null, 4)+'</td></tr>');
+        // bodyString += ('<tr><td>'+country+'</td><td>'+JSON.stringify([UserQuestions[index]], null, 4)+JSON.stringify([UserChoices[index]], null, 4)+'</td></tr>');
+        bodyString += ('<tr> <th>'+country+'</th>'+'<th>'+UserQuestions[index]+'</th>'+'<th>' +JSON.stringify(UserChoices[index], null, 4)+'</th> </tr>');
     });
     $('.country tbody').html(bodyString);
+    
     });
 
     }  // Code end
 
     // Stage #5 Ends
 
-
+<br><br>
 
     // Stage #1 - User Clicks on Info buttons above cards to popup help window.
     function HelpOnClick1() {
@@ -1351,30 +1352,24 @@ $(document).ready(function(){
     }
 
 
-    // Back Button End // 
+    // Back Button End //
 
     //  Add User Input to local Array
 
     // Array Stage #1 Starts//
     function AddUserInputStage1a() {
       // Create object and add the object to the end of the array
-      UserChoices.push(
-        'Combi-Boiler System'
-      );
+      UserChoices.push('I have a combi-boiler system.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage1b() {
-      UserChoices.push(
-        'Gravity Fed System'
-      );
+      UserChoices.push('A gravity fed system.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage1c() {
-      UserChoices.push(
-        'Unvented System'
-      );
+      UserChoices.push('A unvented system.');
       console.log(UserChoices);
     }
     // Array Stage #1 Ends //
@@ -1382,23 +1377,17 @@ $(document).ready(function(){
     // Array Stage #2 Starts //
     function AddUserInputStage2a() {
       // Create object and add the object to the end of the array
-      UserChoices.push({
-        description: 'Less than 12 Liters a Minute'
-      });
+      UserChoices.push('I have less than 12 liters a minute in water flow.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage2b() {
-      UserChoices.push({
-        description: 'Unsure'
-      });
+      // UserChoices.push('Unsure');
       console.log(UserChoices);
     }
 
     function AddUserInputStage2c() {
-      UserChoices.push({
-        description: 'More Than 12 Liters a Minute'
-      });
+      UserChoices.push('I have more than 12 liters a minute in water flow.');
       console.log(UserChoices);
     }
     // Array Stage #2 Ends //
@@ -1406,27 +1395,21 @@ $(document).ready(function(){
     // Array Stage #3 Starts //
     function AddUserInputStage3a() {
       // Create object and add the object to the end of the array
-      UserChoices.push({
-        description: 'Yes greater than 0.5 Bar'
-      });
+      UserChoices.push('I have greater than 0.5 Bar in water pressure.');
       console.log(UserChoices);
     }
 
     function AddUserInputStage3b() {
-      UserChoices.push({
-        description: 'No less than 0.5 Bar'
-      });
+      UserChoices.push('I have less than 0.5 Bar in water pressure.');
       console.log(UserChoices);
     }
     // Array Stage #3 Ends //
 
     // Array Stage #4 Starts //
     function AddUserInputStage4a() {
-      UserChoices.push({
-        description: 'How many Standalone Baths + Showers do you have?',
-        Showers: document.getElementById('Number-Shower').value,
-        Baths: document.getElementById('Number-Bath').value
-      });
+      var aShowers = document.getElementById('Number-Shower').value;
+      var aBaths = document.getElementById('Number-Bath').value;
+      UserChoices.push("There is " + aShowers + " shower(s) and " + " " + aBaths + " bath(s) in my home.");
       console.log(UserChoices);
     }
 
@@ -1435,17 +1418,13 @@ $(document).ready(function(){
     // Array Stage #5 Starts //
 
     function AddUserInputStage5a() {
-      UserChoices.push({
-        description: 'How many people are in your home (Adults + Teenagers)?',
-        Adults: document.getElementById('Number-Adult').value,
-        Teenagers: document.getElementById('Number-Teenager').value
-      });
+      var aAdults = document.getElementById('Number-Adult').value;
+      var aTeenagers = document.getElementById('Number-Teenager').value;
+      UserChoices.push(aAdults + " adult(s) and " + " " + aTeenagers + " teenager(s).");
       console.log(UserChoices);
     }
 
     // Array Stage #5 Ends //
-
-
 
     // Stage #2 or later array removal options. 
 
