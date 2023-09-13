@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -40,10 +41,53 @@
   <!-- /////////////// -->
 
   <!-- Modal Section - The modal is a popup window. This popup occurs when a user clicks on the information button. -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Launch demo modal </button> -->
 
-  <!-- Modal -->
-  <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <!-- Modal Combination Boiler -->
+  <div class="modal fade bd-example-modal-lg combidesktop" id="modalCombinationBoiler" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <!-- ///////// -->
+        <div class="modal-padding-desktop">
+          <table>
+            <thead>
+              <tr>
+                <td style="width: 50%;">
+                  <h2 style="margin-bottom: 0rem;">What is a Gravity fed system?</h2>
+                  <p style="font-size: x-large;">These systems are generally found in older properties. You can tell whether you have this system as you'll have a cold water tank in the loft and a hot water cylinder elsewhere (most likely in an airing cupboard). This means you have a low-pressure water system and you'll need to choose taps designed to work with lower water pressures.</p>
+                </td>
+                <td>
+                  <img class="Modal-Image" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/GravityFedSystem.svg" />
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <!-- ///////////////// -->
+
+        <div class="modal-padding-mobile">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLongTitle">What type of water system do you have?</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <h2 class="modal-title" style="margin-bottom: 0rem;">What is a combination boiler?</h2>
+          <p class="modal-font">A combi boiler, also known as a combination boiler, is the most popular kind of boiler and one that's found in most homes. As the name suggests, this boiler does a 'combination' of heating. It heats both your hot water and your central heating all from the same unit.</p>
+          <div class="modal-image-container">
+            <img class="modal-image" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/CombinationBoiler.svg" />
+          </div>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Combination Boiler Desktop/Tablet -->
+
+  <!-- Modal Gravity Fed System -->
+  <div class="modal fade bd-example-modal-lg" id="modalGravityFed" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -58,20 +102,15 @@
               <thead>
                 <tr>
                   <td style="width: 50%;">
-                    <h2 style="margin-bottom: 0rem;"> What is a combination boiler?</h2>
-                    <p style="font-size: x-large;">A combi boiler, also known as a combination boiler, is the most popular kind of boiler and one that's found in most homes. As the name suggests, this boiler does a 'combination' of heating. It heats both your hot water and your central heating all from the same unit.</p>
+                    <h2 style="margin-bottom: 0rem;">What is a Gravity fed system?</h2>
+                    <p style="font-size: x-large;">These systems are generally found in older properties. You can tell whether you have this system as you'll have a cold water tank in the loft and a hot water cylinder elsewhere (most likely in an airing cupboard). This means you have a low-pressure water system and you'll need to choose taps designed to work with lower water pressures.</p>
                   </td>
                   <td>
-                    <img class="Modal-Image" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/CombinationBoiler.svg" />
+                    <img class="Modal-Image" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/GravityFedSystem.svg" />
                   </td>
                 </tr>
               </thead>
             </table>
-            <!-- <h2> What is a unvented hot water system?</h2> -->
-            <!-- <p>An unvented hot water system is a pressurized hot water tank that is fed directly from the mains water supply. It is also known as a Megaflo. The system has no cold water feed tank and uses mains pressure. The cold water is fed into the hot water tank directly from the mains, with no requirement for a cold water tank. </p> -->
-            <!-- <h2>What is a Gravity fed system?</h2> -->
-            <!-- <p>These systems are generally found in older properties. You can tell whether you have this system as you'll have a cold water tank in the loft and a hot water cylinder elsewhere (most likely in an airing cupboard). This means you have a low-pressure water system and you’ll need to choose taps designed to work with lower water pressures.</p> -->
-
           </div>
         </div>
         <div class="modal-footer">
@@ -80,6 +119,9 @@
       </div>
     </div>
   </div>
+  <!-- Modal Gravity Fed System -->
+
+
 
   <!-- Modal Section - The modal is a popup window. This popup occurs when a user clicks on the information button. -->
 
@@ -106,7 +148,7 @@
       <div class="card-body">
         <div class="inline-title-icon">
           <h4 class="card-title">Combination Boiler</h4>
-          <img data-toggle="modal" data-target="#exampleModalCenter" class="wiggle" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/help-circle-blue.svg" alt="Help Icon">
+          <img data-toggle="modal" data-target="#modalCombinationBoiler" class="wiggle" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/help-circle-blue.svg" alt="Help Icon">
         </div>
         <p class="card-text">Combi boilers are simple units, which are usually mounted on a wall and found in an airing or kitchen cupboard. This boiler does a 'combination' of heating both hot water & your central heating from the same unit.</p>
         <button class="btn btn-primary btn-lg btn-block">Next</button>
@@ -117,7 +159,7 @@
       <div class="card-body">
         <div class="inline-title-icon">
           <h4 class="card-title">Gravity Fed System</h4>
-          <img data-toggle="modal" data-target="#exampleModalCenter" class="wiggle" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/help-circle-blue.svg" alt="Help Icon">
+          <img data-toggle="modal" data-target="#modalGravityFed" class="wiggle" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/help-circle-blue.svg" alt="Help Icon">
         </div>
         <p class="card-text">Gravity fed system. These systems are generally found in older properties. You can tell whether you have this system as you'll have a cold water tank in the loft and a hot water cylinder elsewhere (most likely in an airing cupboard).</p>
         <button class="btn btn-primary btn-lg btn-block">Next</button>
@@ -130,7 +172,7 @@
           <h4 class="card-title">Unvented Cylinder</h4>
           <img data-toggle="modal" data-target="#exampleModalCenter" class="wiggle" src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/help-circle-blue.svg" alt="Help Icon">
         </div>
-        <p class="card-text">Unvented cylinders, also known as pressurised cylinders, are water storage systems that provide high-pressure hot water throughout your home. They can be anywhere in the home (most likely in an airing cupboard).</p>
+        <p class="card-text">Unvented cylinders, also known as pressurised cylinders they are water storage systems that provide high-pressure, hot water all throughout your home. They can be anywhere in the home (but are most likely in an airing cupboard).</p>
         <button class="btn btn-primary btn-lg btn-block">Next</button>
       </div>
     </div>
