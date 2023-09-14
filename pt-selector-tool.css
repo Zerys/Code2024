@@ -12,7 +12,7 @@ button.btn.btn-primary.btn-lg.btn-block:hover {
 /* @media (min-width: 992px) {
   .modal-lg {
     max-width: 1200px;
-  } 
+  }
 }*/
 .incrementor-container {
   align-items: center;
@@ -26,13 +26,30 @@ button.btn.btn-primary.btn-lg.btn-block:hover {
 }
 
 #ContinueBtn4 {
-  display: block;
-  margin-bottom: 5%;
-  margin-top: 5%;
+  margin-bottom: 2%;
+  margin-top: 2%;
   color: rgb(255, 255, 255);
   background-color: rgb(204, 23, 29);
-  padding-left: 10vw;
-  padding-right: 10vw;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#PeopleContinueBtn2 {
+  margin-bottom: 2%;
+  margin-top: 2%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(204, 23, 29);
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#FloorsContinueBtn2 {
+  margin-bottom: 2%;
+  margin-top: 2%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(204, 23, 29);
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 #ContinueBtn5 {
@@ -260,10 +277,6 @@ footer {
   }
 }
 
-.form-group .glyphicon {
-  color: #95d7fc;
-}
-
 .header,
 .footer {
   -webkit-box-flex: 0;
@@ -293,14 +306,7 @@ footer {
     margin-left: 45%;
     width: 100%;
   }
-  img.wiggle:hover {
-    transition: 0.01s;
-    opacity: 80%;
-    -ms-transform: scale(1.15);
-    -webkit-transform: scale(1.15);
-    transform: scale(1.15);
-    animation: none;
-  }
+
   .card-deck {
     -ms-flex-flow: row wrap;
     flex-flow: column;
@@ -319,6 +325,63 @@ body {
   .h2 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+  .wiggle:hover {
+    transition: 0.01s;
+    opacity: 80%;
+    -ms-transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+    animation: none;
+  }
+  #titlestage1a{
+    /* padding: 2rem; */
+    /* font-size: 3em; */
+  }
+  .maintitle {
+    padding: 2rem;
+    /* font-size: 5em; */
+  }
+  .input-group-btn{
+    border: #c7c7c7;
+    border-width: 0.01px;
+    border-style: ridge;
+  }
+  .card-deck-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-deck-body-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-group{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin: 1;
+    flex-direction: row;
+  }
+  .form-group-stage-five{
+    margin: 2rem;
+  }
+  .form-group-drop-down{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin: 1;
+  }
+  .input-group {
+    margin-top: 10%;
+  }
+  .horizontal-container-incrementor {
+    display: flex;
   }
 }
 
@@ -536,10 +599,10 @@ body {
 
 @media screen and (min-width: 600px) {
   /* Modal */
-  .modal-padding-desktop{
+  .modal-padding-desktop {
     display: flex;
   }
-  .modal-padding-mobile{
+  .modal-padding-mobile {
     display: none;
   }
   .modal-dialog {
@@ -552,26 +615,29 @@ body {
   .modal-header {
     display: flex;
   }
-  .modal-title {
+  .table-modal-title-desktop {
     margin: 0%;
-    margin-left: 4%;
-    margin-top: 4%;
-    font-size: 1.3em;
+    margin-left: 8%;
+    margin-top: 40%;
+    font-size: 1.4em;
   }
-  .modal-font {
-    margin: 0%;
-    margin-left: 4%;
-    margin-right: 4%;
+  .table-modal-text-desktop {
+    margin-left: 8%;
+    /* margin-right: 4%; */
     margin-top: 4%;
     margin-bottom: 4%;
-    font-size: 0.9em;
+    font-size: 1.2em;
   }
-  .modal-image {
-    width: 45%;
+  .table-modal-image-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 50%; */
+  }
+  .modal-image-desktop {
+    width: 70%;
     height: 40%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    align-self: center;
+    margin-top: 20%;
   }
   /* Cards */
   .card-title {
@@ -614,8 +680,12 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+  .modal-dialog {
+    max-width: 900px;
+    padding-left: 15px;
+  }
   .card-title {
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-top: 2%;
   }
   img.wiggle {
@@ -635,6 +705,47 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
+  /* Modal */
+  .modal-padding-desktop {
+    display: flex;
+  }
+  .modal-padding-mobile {
+    display: none;
+  }
+  .modal-dialog {
+    max-width: 800px;
+    padding-left: 15px;
+  }
+  #modalCombinationBoiler {
+    width: 100%;
+  }
+  .modal-header {
+    display: flex;
+  }
+  .table-modal-title-desktop {
+    margin: 0%;
+    margin-left: 12%;
+    margin-top: 25%;
+    font-size: 2em;
+  }
+  .table-modal-text-desktop {
+    margin-left: 12%;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-size: 1.3em;
+  }
+  .table-modal-image-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-image-desktop {
+    width: 70%;
+    height: 40%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+  }
+  /* Cards */
   .card-title {
     font-size: 2em;
     margin-top: 2%;
@@ -659,6 +770,47 @@ body {
 }
 
 @media screen and (min-width: 1920px) {
+  /* Modal */
+  .modal-padding-desktop {
+    display: flex;
+  }
+  .modal-padding-mobile {
+    display: none;
+  }
+  .modal-dialog {
+    max-width: 1200px;
+    padding-left: 15px;
+  }
+  #modalCombinationBoiler {
+    width: 100%;
+  }
+  .modal-header {
+    display: flex;
+  }
+  .table-modal-title-desktop {
+    margin: 0%;
+    margin-left: 12%;
+    margin-top: 25%;
+    font-size: 2.8em;
+  }
+  .table-modal-text-desktop {
+    margin-left: 12%;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    font-size: 1.9em;
+  }
+  .table-modal-image-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-image-desktop {
+    width: 70%;
+    height: 40%;
+    margin-top: 8%;
+    margin-bottom: 8%;
+  }
+  /* Cards */
   .card-title {
     font-size: 2em;
     margin-top: 2%;
@@ -683,20 +835,6 @@ body {
 }
 
 @media screen and (min-width: 2560px) {
-  .card-title {
-    font-size: xx-large;
-  }
-  img.wiggle {
-    display: inline-block;
-    animation: wiggle 2.5s infinite;
-    margin-left: 45%;
-    width: 130%;
-  }
-  .card-deck {
-    -ms-flex-flow: row wrap;
-    flex-flow: row;
-    margin: 2%;
-  }
   .card-body {
     margin-bottom: 5%;
   }
