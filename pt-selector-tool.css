@@ -291,9 +291,19 @@ footer {
   }
 }
 
+.backBtn {
+  align-self: flex-start;
+  border-radius: 15px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:20px;
+  padding-right:20px;
+}
+
 .backBtn:hover{
     transition: 0.01s;
-    border-radius: 2px;
+    border: 1px solid #000;
+    border-radius: 15px;
     border-color: #000;
     animation: none;
 }
