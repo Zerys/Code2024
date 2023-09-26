@@ -1,11 +1,15 @@
-button.btn.btn-primary.btn-lg.btn-block {
-  color: #ffffff;
+.btn-primary:hover {
+  color: #fff;
   background-color: #cc171d;
-  border-color: #0000;
-  margin-top: 10%;
+  border-color: #fff;
 }
-
-button.btn.btn-primary.btn-lg.btn-block:hover {
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #cc171d;
+  border-color: #fff;
+  opacity: 85%;
+}
+.button.btn.btn-primary.btn-lg.btn-block:hover {
   opacity: 85%;
 }
 
@@ -42,6 +46,16 @@ button.btn.btn-primary.btn-lg.btn-block:hover {
   padding-left: 15%;
   padding-right: 15%;
 }
+
+.continueButton {
+  margin-bottom: 2%;
+  margin-top: 2%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(204, 23, 29);
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
 
 #FloorsContinueBtn2 {
   margin-bottom: 2%;
@@ -275,6 +289,13 @@ footer {
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.backBtn:hover{
+    transition: 0.01s;
+    border-radius: 2px;
+    border-color: #000;
+    animation: none;
 }
 
 .header,
