@@ -10,9 +10,7 @@
     type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
@@ -20,6 +18,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="Selector2.css">
+  <link rel="stylesheet" href="Selector2Animations.css">
 
 
   <title>Pedrollo Distribution | PowerTank Selector Tool</title>
@@ -332,7 +331,7 @@
 
   <!-- Container Section - This contains contents of the cards that users can click on -->
   <!-- First Set of Cards -->
-  <div style="display:none" class="card-deck card-deck-one">
+  <div id="SectionOne" style="display:flex" class="card-deck card-deck-one SectionOne">
     <div class="card">
       <div class="image">
         <img class="card-img-top"
@@ -349,7 +348,8 @@
         <p class="card-text">Combi boilers are simple units, which are usually mounted on a wall and found in an airing
           or kitchen cupboard. This boiler does a 'combination' of heating both hot water & your central heating from
           the same unit.</p>
-        <button class="btn btn-primary btn-lg btn-block">Next</button>
+        <button id="SectionOneBtn1" onclick="Proceed1Combi()"
+          class="btn btn-primary btn-lg btn-block continueButton card1">Continue</button>
       </div>
     </div>
     <div class="card">
@@ -366,7 +366,8 @@
         <p class="card-text">Gravity fed system. These systems are generally found in older properties. You can tell
           whether you have this system as you'll have a cold water tank in the loft and a hot water cylinder elsewhere
           (most likely in an airing cupboard).</p>
-        <button class="btn btn-primary btn-lg btn-block">Next</button>
+        <button id="SectionOneBtn2" onclick="Proceed1Gravity()"
+          class="btn btn-primary btn-lg btn-block continueButton card2">Continue</button>
       </div>
     </div>
     <div class="card">
@@ -383,16 +384,105 @@
         <p class="card-text">Unvented cylinders, also known as pressurised cylinders they are water storage systems that
           provide high-pressure, hot water all throughout your home. They can be anywhere in the home (but are most
           likely in an airing cupboard).</p>
-        <button onClick="Proceed3()" class="btn btn-primary btn-lg btn-block">Next</button>
+        <button id="SectionOneBtn3" onclick="Proceed1Unvented()" id="Proceed1Unvented"
+          class="btn btn-primary btn-lg btn-block continueButton card3">Continue</button>
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      // Continue Buttons \\
+
+      // #1 Continue Button Section One > Section Two \\
+      $("#SectionOneBtn1").click(function() {
+        $("#SectionOne").fadeOut("fast");
+        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // #2 Continue Button Section One > Section Two \\
+      $("#SectionOneBtn2").click(function() {
+        $("#SectionOne").fadeOut("fast");
+        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // #3 Continue Button Section One > Section Two \\
+      $("#SectionOneBtn3").click(function() {
+        $("#SectionOne").fadeOut("fast");
+        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Continue Button Section Two > Section Three \\
+      $("#StageTwoContinueBtn").click(function() {
+        $("#SectionTwo").fadeOut("fast");
+        $("#SectionThree").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Continue Button Section Three > Section Four \\
+      $("#StageThreeContinueBtn").click(function() {
+        $("#SectionThree").fadeOut("fast");
+        $("#SectionFour").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Continue Button Section four > Section five \\
+      $("#StageFourContinueBtn").click(function() {
+        $("#SectionFour").fadeOut("fast");
+        $("#SectionFive").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Continue Button Section Five > Section Results \\
+      $("#StageFiveContinueBtn").click(function() {
+        $("#SectionFive").fadeOut("fast");
+        $("#SectionResults").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Back Buttons \\
+
+      // Back Button Section Two > Section One \\
+      $("#SectionTwoBackBtn").click(function() {
+        $("#SectionTwo").fadeOut("fast");
+        $("#SectionOne").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Back Button Section Three > Section Two \\
+      $("#SectionThreeBackBtn").click(function() {
+        $("#SectionThree").fadeOut("fast");
+        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Back Button Section Four > Section Three \\
+      $("#SectionThreeBackBtn").click(function() {
+        $("#SectionThree").fadeOut("fast");
+        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+      // Back Button Section Four > Section Three \\
+      $("#SectionThreeBackBtn").click(function() {
+        $("#SectionThree").fadeOut("fast");
+        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      });
+      // ---------------------------------------- \\
+
+    });
+  </script>
   <!-- First Set of Cards -->
 
   <!-- Second Set of Cards -->
-  <div style="display:none" class="card-deck card-deck-one">
+  <div id="SectionTwo" style="display:none" class="card-deck card-deck-one">
     <div class="card">
       <div class="card-body card-deck-body-two">
+        <button id="SectionTwoBackBtn" class="btn btn-default backBtn" style="align-self: flex-start;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;"><span class="fa-solid fa-arrow-left"></span></button>
         <div class="inline-title-icon">
           <h4 class="card-title">What is your incoming flow rate? Litres Per Minute</h4>
           <img data-toggle="modal" data-target="#modalincomingflowrate" class="wiggle"
@@ -412,20 +502,20 @@
             </div>
           </div>
         </div>
-        <button style="display: none" id="ContinueBtn4" class="btn btn-default" onclick="Proceed2()">Continue</button>
+        <button id="StageTwoContinueBtn" style="display: none" class="btn btn-default continueButton" onclick="Proceed2()">Continue</button>
       </div>
     </div>
   </div>
 
   <script type="text/javascript">
-    var ContinueBtn = document.getElementById("Number-Litres");
-    var ContinueBtn2 = document.getElementById("ContinueBtn4");
-    checkMinusValue();
+    // var ContinueBtn = document.getElementById("Number-Litres");
+    var StageTwoContinueBtn = document.getElementById("StageTwoContinueBtn");
+    checkMinusValueStageTwo();
 
     // Shower Count
     function LitersUp(max) {
       document.getElementById("Number-Litres").value = parseInt(document.getElementById("Number-Litres").value) + 1;
-      checkPlusValue();
+      checkPlusValueStageTwo();
       if (document.getElementById("Number-Litres").value >= parseInt(max)) {
         document.getElementById("Number-Litres").value = max;
       }
@@ -433,36 +523,35 @@
 
     function LitersDown(min) {
       document.getElementById("Number-Litres").value = parseInt(document.getElementById("Number-Litres").value) - 1;
-      checkMinusValue();
+      checkMinusValueStageTwo();
       if (document.getElementById("Number-Litres").value <= parseInt(min)) {
         document.getElementById("Number-Litres").value = min;
       }
     }
 
-    function checkPlusValue() {
+    function checkPlusValueStageTwo() {
       var NumberCheck = document.getElementById("Number-Litres").value;
 
       if (NumberCheck >= 1) {
-        ContinueBtn2.style.display = "grid";
+        StageTwoContinueBtn.style.display = "grid";
       }
     }
 
-    function checkMinusValue() {
+    function checkMinusValueStageTwo() {
       var NumberCheck = document.getElementById("Number-Litres").value;
 
       if (NumberCheck == 0) {
-        if (NumberCheck <= 1) {
-          ContinueBtn2.style.display = "none";
-        }
+        StageTwoContinueBtn.style.display = "none";
       }
     }
   </script>
   <!-- Second Set of Cards -->
 
   <!-- Third Set of Cards -->
-  <div style="display:none" class="card-deck card-deck-one">
+  <div id="SectionThree" style="display:none" class="card-deck card-deck-one">
     <div class="card">
       <div class="card-body card-deck-body-two">
+        <button id="SectionThreeBackBtn" class="btn btn-default backBtn" style="align-self: flex-start;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;"><span class="fa-solid fa-arrow-left"></span></button>
         <div class="inline-title-icon">
           <h4 class="card-title">How many people live in this property?</h4>
           <img data-toggle="modal" data-target="#modalHowManyPeople" class="wiggle"
@@ -482,21 +571,21 @@
             </div>
           </div>
         </div>
-        <button style="display: none" id="PeopleContinueBtn2" class="btn btn-default"
-          onclick="Proceed4()">Continue</button>
+        <button style="display: none" id="StageThreeContinueBtn" class="btn btn-default continueButton"
+          onclick="Proceed3()">Continue</button>
       </div>
     </div>
   </div>
 
   <script type="text/javascript">
     var PeopleContinueBtn = document.getElementById("NumberPeople");
-    var PeopleContinueBtn2 = document.getElementById("PeopleContinueBtn2");
-    checkMinusValuePeople();
+    var StageThreeContinueBtn = document.getElementById("StageThreeContinueBtn");
+    checkMinusValueStageThree();
 
     // Shower Count
     function PeopleUp(max) {
       document.getElementById("NumberPeople").value = parseInt(document.getElementById("NumberPeople").value) + 1;
-      checkPlusValuePeople();
+      checkPlusValueStageThree();
       if (document.getElementById("NumberPeople").value >= parseInt(max)) {
         document.getElementById("NumberPeople").value = max;
       }
@@ -504,36 +593,33 @@
 
     function PeopleDown(min) {
       document.getElementById("NumberPeople").value = parseInt(document.getElementById("NumberPeople").value) - 1;
-      checkMinusValuePeople();
+      checkMinusValueStageThree();
       if (document.getElementById("NumberPeople").value <= parseInt(min)) {
         document.getElementById("NumberPeople").value = min;
       }
     }
 
-    function checkPlusValuePeople() {
+    function checkPlusValueStageThree() {
       var NumberCheck = document.getElementById("NumberPeople").value;
-
       if (NumberCheck >= 1) {
-        PeopleContinueBtn2.style.display = "grid";
+        StageThreeContinueBtn.style.display = "grid";
       }
     }
 
-    function checkMinusValuePeople() {
+    function checkMinusValueStageThree() {
       var NumberCheck = document.getElementById("NumberPeople").value;
-
       if (NumberCheck == 0) {
-        if (NumberCheck <= 1) {
-          PeopleContinueBtn2.style.display = "none";
-        }
+        StageThreeContinueBtn.style.display = "none";
       }
     }
   </script>
   <!-- Third Set of Cards -->
 
   <!-- Fourth Set of Cards -->
-  <div style="display:none" class="card-deck card-deck-one">
+  <div id="SectionFour" style="display:none" class="card-deck card-deck-one">
     <div class="card">
       <div class="card-body card-deck-body-two">
+        <button id="SectionFourBackBtn" class="btn btn-default backBtn" style="align-self: flex-start;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;"><span class="fa-solid fa-arrow-left"></span></button>
         <div class="inline-title-icon">
           <h4 class="card-title">How many floors does your property have?</h4>
           <img data-toggle="modal" data-target="#modalHowManyFloors" class="wiggle"
@@ -553,20 +639,21 @@
             </div>
           </div>
         </div>
-        <button style="display: none" id="FloorsContinueBtn2" class="btn btn-default"
-          onclick="Proceed5()">Continue</button>
+        <button style="display: block" id="StageFourContinueBtn" class="btn btn-default continueButton"
+          onclick="Proceed4()">Continue</button>
       </div>
     </div>
   </div>
 
   <script type="text/javascript">
-    var PeopleContinueBtn = document.getElementById("NumberFloors");
-    var FloorsContinueBtn2 = document.getElementById("FloorsContinueBtn2");
-    checkMinusValueFloor();
+    // var PeopleContinueBtn = document.getElementById("NumberFloors");
+    var StageFourContinueBtn = document.getElementById("StageFourContinueBtn");
+    checkMinusValueStageFour();
 
+    // Showers
     function FloorsUp(max) {
       document.getElementById("NumberFloors").value = parseInt(document.getElementById("NumberFloors").value) + 1;
-      checkPlusValuePeople();
+      checkPlusValueStageFour();
       if (document.getElementById("NumberFloors").value >= parseInt(max)) {
         document.getElementById("NumberFloors").value = max;
       }
@@ -574,36 +661,34 @@
 
     function FloorsDown(min) {
       document.getElementById("NumberFloors").value = parseInt(document.getElementById("NumberFloors").value) - 1;
-      checkMinusValueFloor();
+      checkMinusValueStageFour();
       if (document.getElementById("NumberFloors").value <= parseInt(min)) {
         document.getElementById("NumberFloors").value = min;
       }
     }
+    // Showers
 
-    function checkPlusValuePeople() {
-      var NumberCheck = document.getElementById("NumberFloors").value;
-
-      if (NumberCheck >= 1) {
-        FloorsContinueBtn2.style.display = "grid";
+    function checkPlusValueStageFour() {
+      var NumberCheck1 = document.getElementById("NumberFloors").value;
+      if (NumberCheck1 >= 1 || NumberCheck2 >= 1 || NumberCheck3 >= 1) {
+        StageFourContinueBtn.style.display = "block";
       }
     }
 
-    function checkMinusValueFloor() {
-      var NumberCheck = document.getElementById("NumberFloors").value;
-
-      if (NumberCheck == 0) {
-        if (NumberCheck <= 1) {
-          FloorsContinueBtn2.style.display = "none";
-        }
+    function checkMinusValueStageFour() {
+      var NumberCheck1 = document.getElementById("NumberFloors").value;
+      if (NumberCheck1 == 0) {
+        StageFourContinueBtn.style.display = "none";
       }
     }
   </script>
   <!-- Fourth Set of Cards -->
 
   <!-- Fifth Set of Cards -->
-  <div style="display:flex" class="card-deck card-deck-one">
+  <div id="SectionFive"style="display:none" class="card-deck card-deck-one">
     <div class="card">
       <div class="card-body card-deck-body-two">
+        <button id="SectionFiveBackBtn" class="btn btn-default backBtn" style="align-self: flex-start;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;"><span class="fa-solid fa-arrow-left"></span></button>
         <div class="inline-title-icon">
           <h4 class="card-title">How many separate showers, baths and on-suites does the property have?</h4>
           <img data-toggle="modal" data-target="#modalHowManyFloors" class="wiggle"
@@ -611,93 +696,139 @@
             alt="Help Icon">
         </div>
         <div class="horizontal-container-incrementor">
-        <!--  -->
-        <div class="form-group-stage-five">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button id="down" class="btn btn-default" onclick="FloorsDown('0')"><span
-                  class="fa-solid fa-minus"></span></span></button>
-            </div>
-            <input type="text" id="NumberFloors" class="form-control input-number" value="0" />
-            <div class="input-group-btn">
-              <button id="up" class="btn btn-default" onclick="FloorsUp('10')"><span
-                  class="fa-solid fa-plus"></span></button>
-            </div>
-          </div>
-        </div>
-        <!--  -->
-        <div class="form-group-stage-five">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button id="down" class="btn btn-default" onclick="FloorsDown('0')"><span
-                  class="fa-solid fa-minus"></span></span></button>
-            </div>
-            <input type="text" id="NumberFloors" class="form-control input-number" value="0" />
-            <div class="input-group-btn">
-              <button id="up" class="btn btn-default" onclick="FloorsUp('10')"><span
-                  class="fa-solid fa-plus"></span></button>
+          <!--  -->
+          <div class="form-group-stage-five">
+            <h3>Showers</h3>
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button id="down" class="btn btn-default" onclick="ShowersDown('0')"><span
+                    class="fa-solid fa-minus"></span></span></button>
+              </div>
+              <input type="text" id="NumberShowers" class="form-control input-number" value="0" />
+              <div class="input-group-btn">
+                <button id="up" class="btn btn-default" onclick="ShowersUp('10')"><span
+                    class="fa-solid fa-plus"></span></button>
+              </div>
             </div>
           </div>
-        </div>
-        <!--  -->
-        <div class="form-group-stage-five">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button id="down" class="btn btn-default" onclick="FloorsDown('0')"><span
-                  class="fa-solid fa-minus"></span></span></button>
-            </div>
-            <input type="text" id="NumberFloors" class="form-control input-number" value="0" />
-            <div class="input-group-btn">
-              <button id="up" class="btn btn-default" onclick="FloorsUp('10')"><span
-                  class="fa-solid fa-plus"></span></button>
+          <!--  -->
+          <div class="form-group-stage-five">
+            <h3>Bath's</h3>
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button id="down" class="btn btn-default" onclick="BathsDown('0')"><span
+                    class="fa-solid fa-minus"></span></span></button>
+              </div>
+              <input type="text" id="NumberBaths" class="form-control input-number" value="0" />
+              <div class="input-group-btn">
+                <button id="up" class="btn btn-default" onclick="BathsUp('10')"><span
+                    class="fa-solid fa-plus"></span></button>
+              </div>
             </div>
           </div>
+          <!--  -->
+          <div class="form-group-stage-five">
+            <h3>On-Suites</h3>
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button id="down" class="btn btn-default" onclick="OnsuitesDown('0')"><span
+                    class="fa-solid fa-minus"></span></span></button>
+              </div>
+              <input type="text" id="NumberOnsuites" class="form-control input-number" value="0" />
+              <div class="input-group-btn">
+                <button id="up" class="btn btn-default" onclick="OnsuitesUp('10')"><span
+                    class="fa-solid fa-plus"></span></button>
+              </div>
+            </div>
+          </div>
+          <!--  -->
         </div>
-        <!--  -->
+
+        <button style="display: flex" id="StageFiveContinueBtn" class="btn btn-default continueButton"
+          onclick="Proceed5()">Continue</button>
       </div>
 
-        <!-- <button style="display: none" id="FloorsContinueBtn2" class="btn btn-default"
-          onclick="Proceed5()">Continue</button> -->
-      </div>
     </div>
   </div>
 
   <script type="text/javascript">
-    var PeopleContinueBtn = document.getElementById("NumberFloors");
-    var FloorsContinueBtn2 = document.getElementById("FloorsContinueBtn2");
-    checkMinusValueFloor();
+    // var PeopleContinueBtn = document.getElementById("NumberFloors");
+    var StageFiveContinueBtn = document.getElementById("StageFiveContinueBtn");
+    checkMinusValueStageFive();
 
-    function FloorsUp(max) {
-      document.getElementById("NumberFloors").value = parseInt(document.getElementById("NumberFloors").value) + 1;
-      checkPlusValuePeople();
-      if (document.getElementById("NumberFloors").value >= parseInt(max)) {
-        document.getElementById("NumberFloors").value = max;
+    // Showers
+    function ShowersUp(max) {
+      document.getElementById("NumberShowers").value = parseInt(document.getElementById("NumberShowers").value) + 1;
+      checkPlusValueStageFive();
+      if (document.getElementById("NumberShowers").value >= parseInt(max)) {
+        document.getElementById("NumberShowers").value = max;
       }
     }
 
-    function FloorsDown(min) {
-      document.getElementById("NumberFloors").value = parseInt(document.getElementById("NumberFloors").value) - 1;
-      checkMinusValueFloor();
-      if (document.getElementById("NumberFloors").value <= parseInt(min)) {
-        document.getElementById("NumberFloors").value = min;
+    function ShowersDown(min) {
+      document.getElementById("NumberShowers").value = parseInt(document.getElementById("NumberShowers").value) - 1;
+      checkMinusValueStageFive();
+      if (document.getElementById("NumberShowers").value <= parseInt(min)) {
+        document.getElementById("NumberShowers").value = min;
+      }
+    }
+    // Showers
+
+    // Bath's
+    function BathsUp(max) {
+      document.getElementById("NumberBaths").value = parseInt(document.getElementById("NumberBaths").value) + 1;
+      checkPlusValueStageFive();
+      if (document.getElementById("NumberBaths").value >= parseInt(max)) {
+        document.getElementById("NumberBaths").value = max;
       }
     }
 
-    function checkPlusValuePeople() {
-      var NumberCheck = document.getElementById("NumberFloors").value;
+    function BathsDown(min) {
+      document.getElementById("NumberBaths").value = parseInt(document.getElementById("NumberBaths").value) - 1;
+      checkMinusValueStageFive();
+      if (document.getElementById("NumberBaths").value <= parseInt(min)) {
+        document.getElementById("NumberBaths").value = min;
+      }
+    }
+    // Bath's
 
-      if (NumberCheck >= 1) {
-        FloorsContinueBtn2.style.display = "grid";
+    // Onsuites
+    function OnsuitesUp(max) {
+      document.getElementById("NumberOnsuites").value = parseInt(document.getElementById("NumberOnsuites").value) + 1;
+      checkPlusValueStageFive();
+      if (document.getElementById("NumberOnsuites").value >= parseInt(max)) {
+        document.getElementById("NumberOnsuites").value = max;
       }
     }
 
-    function checkMinusValueFloor() {
-      var NumberCheck = document.getElementById("NumberFloors").value;
+    function OnsuitesDown(min) {
+      document.getElementById("NumberOnsuites").value = parseInt(document.getElementById("NumberOnsuites").value) - 1;
+      checkMinusValueStageFive();
+      if (document.getElementById("NumberOnsuites").value <= parseInt(min)) {
+        document.getElementById("NumberOnsuites").value = min;
+      }
+    }
+    // Onsuites
 
-      if (NumberCheck == 0) {
-        if (NumberCheck <= 1) {
-          FloorsContinueBtn2.style.display = "none";
-        }
+    function checkPlusValueStageFive() {
+      var NumberCheck1 = document.getElementById("NumberShowers").value;
+      var NumberCheck2 = document.getElementById("NumberBaths").value;
+      var NumberCheck3 = document.getElementById("NumberOnsuites").value;
+      if (NumberCheck1 >= 1 || NumberCheck2 >= 1 || NumberCheck3 >= 1) {
+        StageFiveContinueBtn.style.display = "block";
+      }
+    }
+
+    function checkMinusValueStageFive() {
+      var NumberCheck1 = document.getElementById("NumberShowers").value;
+      var NumberCheck2 = document.getElementById("NumberBaths").value;
+      var NumberCheck3 = document.getElementById("NumberOnsuites").value;
+
+      if (NumberCheck1 == 0 && NumberCheck2 == 0 && NumberCheck3 == 0) {
+        StageFiveContinueBtn.style.display = "none";
+      }
+      else {
+        StageFiveContinueBtn.style.display = "block";
       }
     }
   </script>
