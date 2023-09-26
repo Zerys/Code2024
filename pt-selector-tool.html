@@ -393,11 +393,26 @@
   <script type="text/javascript">
     $(document).ready(function () {
 
+      // User Choices Array \\
+      var UserChoiceID =[];
+
+      function AddToArray(i){
+        UserChoiceID.push(i);
+        console.log(UserChoiceID);
+      }
+
+      function RemoveFromArray(){
+        UserChoiceID.pop();
+        console.log(UserChoiceID);
+      }
+      // ---------------------------------------- \\
+
       // Continue Buttons \\
 
       // #1 Continue Button Section One > Section Two \\
       $("#SectionOneBtn1").click(function() {
         $("#SectionOne").fadeOut("fast");
+        AddToArray("Combination Boiler");
         $("#SectionTwo").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
@@ -405,6 +420,7 @@
       // #2 Continue Button Section One > Section Two \\
       $("#SectionOneBtn2").click(function() {
         $("#SectionOne").fadeOut("fast");
+        AddToArray("Gravity Fed");
         $("#SectionTwo").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
@@ -412,6 +428,7 @@
       // #3 Continue Button Section One > Section Two \\
       $("#SectionOneBtn3").click(function() {
         $("#SectionOne").fadeOut("fast");
+        AddToArray("Unvented Cylinder");
         $("#SectionTwo").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
@@ -419,6 +436,8 @@
       // Continue Button Section Two > Section Three \\
       $("#StageTwoContinueBtn").click(function() {
         $("#SectionTwo").fadeOut("fast");
+        var i = document.getElementById("Number-Litres").value; 
+        AddToArray(i);
         $("#SectionThree").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
@@ -449,6 +468,7 @@
       // Back Button Section Two > Section One \\
       $("#SectionTwoBackBtn").click(function() {
         $("#SectionTwo").fadeOut("fast");
+        RemoveFromArray();
         $("#SectionOne").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
@@ -461,16 +481,16 @@
       // ---------------------------------------- \\
 
       // Back Button Section Four > Section Three \\
-      $("#SectionThreeBackBtn").click(function() {
-        $("#SectionThree").fadeOut("fast");
-        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      $("#SectionFourBackBtn").click(function() {
+        $("#SectionFour").fadeOut("fast");
+        $("#SectionThree").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
 
       // Back Button Section Four > Section Three \\
-      $("#SectionThreeBackBtn").click(function() {
-        $("#SectionThree").fadeOut("fast");
-        $("#SectionTwo").delay(220).fadeIn("fast, linear");
+      $("#SectionFiveBackBtn").click(function() {
+        $("#SectionFive").fadeOut("fast");
+        $("#SectionFour").delay(220).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
 
@@ -482,9 +502,9 @@
   <div id="SectionTwo" style="display:none" class="card-deck card-deck-one">
     <div class="card">
       <div class="card-body card-deck-body-two">
-        <button id="SectionTwoBackBtn" class="btn btn-default backBtn" style="align-self: flex-start;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;"><span class="fa-solid fa-arrow-left"></span></button>
+        <button id="SectionTwoBackBtn" class="btn btn-default backBtn"><span class="fa-solid fa-arrow-left"></span></button>
         <div class="inline-title-icon">
-          <h4 class="card-title">What is your incoming flow rate? Litres Per Minute</h4>
+          <h4 class="card-title">What is your incoming flow rate? (Litres Per Minute)</h4>
           <img data-toggle="modal" data-target="#modalincomingflowrate" class="wiggle"
             src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/Modal/help-circle-blue.svg"
             alt="Help Icon">
