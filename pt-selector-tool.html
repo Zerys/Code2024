@@ -369,6 +369,45 @@
         UserChoiceID.pop();
         console.log(UserChoiceID);
       }
+      function GreaterThanThreeFloors() {
+        var calFloors = UserChoiceID[3].toString();
+        if (calFloors > 3) {
+          $("#GreaterThanThreeFloors").delay(220).fadeIn("fast, linear");
+        } else {
+          $("#GreaterThanThreeFloors").fadeOut("fast");
+        }
+      }
+      function GreaterThanFivePeople() {
+        var GreaterThanFivePeople = UserChoiceID[2].toString();
+        if (GreaterThanFivePeople > 5) {
+          $("#GreaterThanFivePeople").delay(220).fadeIn("fast, linear");
+        } else {
+          $("#GreaterThanFivePeople").fadeOut("fast");
+        }
+      }
+      function CleanUpResultsOnBack() {
+        //
+        document.getElementById("results-product-name-one").innerHTML = null;
+        document.getElementById("results-product-description-one").innerHTML = null;
+        document.getElementById("results-button-one").innerHTML = null;
+        document.getElementById("results-product-image-one").innerHTML = null;
+        //
+        document.getElementById("results-product-name-two").innerHTML = null;
+        document.getElementById("results-product-description-two").innerHTML = null;
+        document.getElementById("results-button-two").innerHTML = null;
+        document.getElementById("results-product-image-two").innerHTML = null;
+        //
+        document.getElementById("results-product-name-three").innerHTML = null;
+        document.getElementById("results-product-description-three").innerHTML = null;
+        document.getElementById("results-button-three").innerHTML = null;
+        document.getElementById("results-product-image-three").innerHTML = null;
+
+        document.getElementById("results-product-name-four").innerHTML = null;
+        document.getElementById("results-product-description-four").innerHTML = null;
+        document.getElementById("results-button-four").innerHTML = null;
+        document.getElementById("results-product-image-four").innerHTML = null;
+      }
+
       // ---------------------------------------- \\
 
       // Continue Buttons \\
@@ -440,6 +479,8 @@
         AddToArray(i + " " + "Shower(s)" + " " + j + " " + "Bath(s)" + " " + k + " " + "Onsuite(s)");
         loadResults();
         $("#SectionSix").delay(220).fadeIn("fast, linear");
+        GreaterThanThreeFloors();
+        GreaterThanFivePeople();
       });
       // ---------------------------------------- \\
 
@@ -492,6 +533,9 @@
         $("#SectionSix").fadeOut("fast");
         RemoveFromArray();
         $("#SectionFive").delay(220).fadeIn("fast, linear");
+        GreaterThanThreeFloors();
+        GreaterThanFivePeople();
+        CleanUpResultsOnBack();
       });
       // ---------------------------------------- \\
 
@@ -514,18 +558,24 @@
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-btn">
-              <button id="down" class="btn btn-default" onclick="LitersDown('0')"><span
+
+              <button id="down" class="btn btn-default" onclick="LitersDown('3')"><span
                   class="fa-solid fa-minus"></span></span></button>
             </div>
-            <input type="number" value='6' id="Number-Litres" class="form-control input-number" value="0" />
+            <input type="number" value='10' id="Number-Litres" class="form-control input-number" />
             <div class="input-group-btn">
-              <button id="up" class="btn btn-default" onclick="LitersUp('10')"><span
+              <button id="up" class="btn btn-default" onclick="LitersUp('20')"><span
                   class="fa-solid fa-plus"></span></button>
             </div>
           </div>
         </div>
         <button id="StageTwoContinueBtn" style="display: flex" class="btn btn-default continueButton">Continue</button>
       </div>
+      <label id="LessThan4LPM" style="display:none" class="resultstitle info label"><i
+        style="padding-right: 1%; padding-top: 4px;" class="fa fa-exclamation-triangle"
+        aria-hidden="true"></i>Notice: Since you have stated that your LPM is less than 3 please either
+      contact your water authority or get in touch with us on this number: 123456789 to discuss your
+      requirements</label>
     </div>
   </div>
 
@@ -561,10 +611,15 @@
 
     function checkMinusValueStageTwo() {
       var NumberCheck = document.getElementById("Number-Litres").value;
-
-      if (NumberCheck == 0) {
-        StageTwoContinueBtn.style.display = "none";
+      if (NumberCheck < 4) {
+        $("#LessThan4LPM").delay(220).fadeIn("fast, linear");
+      } else {
+        $("#LessThan4LPM").fadeOut("fast");
       }
+
+    if (NumberCheck == 0) {
+      StageTwoContinueBtn.style.display = "none";
+    }
     }
   </script>
   <!-- Second Set of Cards -->
@@ -873,37 +928,61 @@
       // });
 
       var products = [
-        // 125 LTR Compact \\
+        // 125 LTR Fixed Compact \\
         { "ID": "0", "Name": "POWERTANK 125ltr Compact Fixed Speed Pump", "Description": "The Powertank COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.", "[1] Range": "60-90 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Compact/3002-Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
-        // 125 LTR Compact \\
+        // 125 LTR Variable Compact \\
         { "ID": "1", "Name": "POWERTANK 125ltr Compact Variable Speed Pump", "Description": "The Powertank COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.", "[1] Range": "60-90 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Compact/3002-Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
-        // 200 LTR Slimline \\
+        // 200 LTR Fixed Slimline \\
         { "ID": "2", "Name": "POWERTANK 200ltr Slimline Fixed Speed Pump", "Description": "The Powertank Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "[1] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Simplicity/Powertank-Slimline-Simplicity-Fixed-Speed-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
-        // 200 LTR Slimline \\
+        // 200 LTR Variable Slimline \\
         { "ID": "3", "Name": "POWERTANK 200ltr Slimline Variable Speed Pump", "Description": "The Powertank Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "[2] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Simplicity/Powertank-Slimline-Simplicity-Fixed-Speed-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
-        // 200 LTR Coffin \\
+        // 200 LTR Fixed Coffin \\
         { "ID": "4", "Name": "POWERTANK 200ltr Coffin Fixed Speed Pump", "Description": "The Powertank Coffin range is designed for domestic and light commercial use where there is low mains water pressure and where pressure fluctuates.", "[2] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-200ltr-Fixed-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
-        // 200 LTR Coffin \\
-        { "ID": "5", "Name": "POWERTANK 200ltr Coffin Variable Speed Pump", "Description": " ", "[2] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-200ltr-Fixed-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+        // 200 LTR Variable Coffin \\
+        { "ID": "5", "Name": "POWERTANK 200ltr Coffin Variable Speed Pump", "Description": "The Powertank Coffin range is designed for domestic and light commercial use where there is low mains water pressure and where pressure fluctuates.", "[2] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-200ltr-Fixed-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
+        // 270 LTR Fixed Coffin \\
+        { "ID": "6", "Name": "POWERTANK 270ltr Coffin Fixed Speed Pump", "Description": "The Powertank Coffin range is designed for domestic and light commercial use where there is low mains water pressure and where pressure fluctuates.", "[2] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-Simplicity-270ltr-Fixed-Speed-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
 
-        { "ID": "6", "Name": "POWERTANK 270ltr Coffin Fixed Speed Pump", "Description": " ", "[2] Range": "180-270 LTR" },
-        { "ID": "7", "Name": "POWERTANK 270ltr Coffin Variable Speed Pump", "Description": " ", "[2] Range": "180-270 LTR" },//
-        { "ID": "8", "Name": "POWERTANK 300ltr Rectangular Fixed Speed Pump", "Description": " ", "[3] Range": "300-450 LTR" },
-        { "ID": "9", "Name": "POWERTANK 300ltr Rectangular Variable Speed Pump", "Description": " ", "[3] Range": "300-450 LTR" },
-        { "ID": "10", "Name": "POWERTANK 340ltr Coffin Fixed Speed Pump", "Description": " ", "Range": "[3] 300-450 LTR" },
-        { "ID": "11", "Name": "POWERTANK 340ltr Coffin Variable Speed Pump", "Description": " ", "Range": "[3] 300-450 LTR" },
-        { "ID": "12", "Name": "POWERTANK 350ltr Slimline Fixed Speed Pump", "Description": " ", "Range": "[3] 300-450 LTR" },
-        { "ID": "13", "Name": "POWERTANK 350ltr Slimline Fixed Speed Pump", "Description": " ", "Range": "[3] 300-450 LTR" },
-        { "ID": "14", "Name": "POWERTANK 450ltr Coffin Fixed Speed Pump", "Description": " ", "Range": "[3] 300-450 LTR" },
-        { "ID": "15", "Name": "POWERTANK 450ltr Coffin Variable Speed Pump", "Description": " ", "Range": "[3] 300-450 LTR & [4] 420-630 LTR" },
+        // 270 LTR Variable Coffin \\
+        { "ID": "7", "Name": "POWERTANK 270ltr Coffin Variable Speed Pump", "Description": "The Powertank Coffin range is designed for domestic and light commercial use where there is low mains water pressure and where pressure fluctuates.", "[2] Range": "180-270 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-270ltr-Variable-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 300 LTR Fixed Rectangular \\
+        { "ID": "8", "Name": "POWERTANK 300ltr Rectangular Fixed Speed Pump", "Description": "The Powertank Rectangular pumping range is designed for domestic and light commercial use where there is low mains water pressure and where pressure fluctuates.  It is electronically controlled through a flow switch unit which starts and stops the pump automatically when a tap is opened and closed. ", "[3] Range": "300-450 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Rectangular/Powertank-Rectangular-Fixed-Speed-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 300 LTR Fixed Rectangular \\
+        { "ID": "9", "Name": "POWERTANK 300ltr Rectangular Variable Speed Pump", "Description": "The Powertank Rectangular pumping range is designed for domestic and light commercial use where there is low mains water pressure and where pressure fluctuates.  It is electronically controlled through a flow switch unit which starts and stops the pump automatically when a tap is opened and closed. ", "[3] Range": "300-450 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Rectangular/Powertank-Rectangular-Variable-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 340 LTR Fixed Coffin \\
+        { "ID": "10", "Name": "POWERTANK 340ltr Coffin Fixed Speed Pump", "Description": "The Powertank Coffin range is designed for houses and apartments where there is low mains water pressure and where pressure fluctuates. It is electronically controlled through a flow switch unit which starts and stops the pump automatically when a tap is opened and closed. ", "Range": "[3] 300-450 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-270ltr-Variable-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 340 LTR Variable Coffin \\
+        { "ID": "11", "Name": "POWERTANK 340ltr Coffin Variable Speed Pump", "Description": "The Powertank Coffin range is designed for houses and apartments where there is low mains water pressure and where pressure fluctuates. It is electronically controlled through a flow switch unit which starts and stops the pump automatically when a tap is opened and closed. ", "Range": "[3] 300-450 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-270ltr-Variable-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 350 LTR Fixed Slimline \\
+        { "ID": "12", "Name": "POWERTANK 350ltr Slimline Fixed Speed Pump", "Description": "The Powertank Simplicity Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "Range": "[3] 300-450 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Simplicity/Powertank-Slimline-Simplicity-Fixed-Speed-Water-Boosting-System.webp/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 350 LTR Variable Slimline \\
+        { "ID": "13", "Name": "POWERTANK 350ltr Slimline Variable Speed Pump", "Description": "The Powertank Simplicity Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "Range": "[3] 300-450 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Simplicity/Powertank-Slimline-Simplicity-Fixed-Speed-Water-Boosting-System.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 450 LTR Fixed Coffin \\
+        { "ID": "14", "Name": "POWERTANK 450ltr Coffin Fixed Speed Pump", "Description": "The Powertank Coffin range is designed for houses and apartments where there is low mains water pressure and where pressure fluctuates. It is electronically controlled through a flow switch unit which starts and stops the pump automatically when a tap is opened and closed. ", "Range": "[3] 300-450 LTR" },
+
+        // 450 LTR Variable Coffin \\
+        { "ID": "15", "Name": "POWERTANK 450ltr Coffin Variable Speed Pump", "Description": "The Powertank Coffin range is designed for houses and apartments where there is low mains water pressure and where pressure fluctuates. It is electronically controlled through a flow switch unit which starts and stops the pump automatically when a tap is opened and closed. ", "Range": "[3] 300-450 LTR & [4] 420-630 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PumpExpress/Product-Images/PowerTank/Coffin/Powertank-Coffin-270ltr-Variable-Speed-Water-Boosting-System-1.webp"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">More Information</button>' },
+
+        // 500 LTR Fixed Rectangular \\
         { "ID": "16", "Name": "POWERTANK 500ltr Rectangular Fixed Speed Pump", "Description": " ", "Range": "[4] 420-630 LTR" },
+
+        // 500 LTR Fixed Rectangular \\
         { "ID": "17", "Name": "POWERTANK 500ltr Rectangular Variable Speed Pump", "Description": " ", "Range": "[4] 420-630 LTR" },
+
+        // 300 LTR Fixed Rectangular \\
         { "ID": "18", "Name": "POWERTANK 500ltr Rectangular Twin Variable Speed Pump", "Description": " ", "Range": "[4] 420-630 LTR" },
         { "ID": "19", "Name": "POWERTANK 500ltr Utility Fixed Speed Pump", "Description": " ", "Range": "[4] 420-630 LTR" },
         { "ID": "20", "Name": "POWERTANK 500ltr Utility Variable Speed Pump", "Description": " ", "Range": "[4] 420-630 LTR" },
@@ -916,15 +995,13 @@
         { "ID": "27", "Name": "POWERTANK 1000ltr Utility Fixed Speed Pump", "Description": " ", "Range": "[7] 780-1170 LTR" },
         { "ID": "28", "Name": "POWERTANK 1000ltr Utility Variable Speed Pump", "Description": " ", "Range": "[7] 780-1170 LTR" },
         { "ID": "29", "Name": "POWERTANK 1000ltr Utility Twin Variable Speed Pump", "Description": " ", "Range": "[7] 780-1170 LTR" },
+        { "ID": "30", "Name": "Contact Us", "Description": "Hello please get in touch with us at this number to discuss your requirements / custom applications. Thank you.", "Range": "[7] 780-1170 LTR", "Image": '<img style="width:85%;margin-top:5%;"src="https://www.flatratenow.net/hs-fs/hubfs/Final%20Icons_Plumber%20copy.png?width=751&name=Final%20Icons_Plumber%20copy.png"/>', "Button": '<button style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-toggle="modal" data-target="#modalProductResults" class="cell btn btn-default continueButton" data-title="Future Requirements">Contact Form</button>' },
       ];
-
-
-
       // Calculation Variables
       var calSystem = UserChoiceID[0].toString();
       // var calFlowRate = UserChoiceID[1].value;
-      // var calPeople = UserChoiceID[2].value;
-      // var calFloors= UserChoiceID[3].value;
+      var calPeople = UserChoiceID[2].toString();
+
       // var calBathsShowersOnsuites = UserChoiceID[4].value;
 
       var ResultsNumberCheck1 = document.getElementById("NumberShowers").value;
@@ -932,10 +1009,13 @@
       var ResultsNumberCheck3 = document.getElementById("NumberOnsuites").value;
       var ResultsNumberCheck4 = document.getElementById("Number-Litres").value;
 
+      // var GreaterThanThreeFloors = document.getElementById("GreaterThanThreeFloors").value;
+
       console.log("Showers " + ResultsNumberCheck1);
       console.log("Baths " + ResultsNumberCheck2);
       console.log("Onsuites " + ResultsNumberCheck3);
       console.log("LPM " + ResultsNumberCheck4);
+      console.log("Total People = " + calPeople);
 
       var CombinedBSO = parseInt(ResultsNumberCheck1) + parseInt(ResultsNumberCheck2) + parseInt(ResultsNumberCheck3);
       console.log("BSO Combined = " + CombinedBSO);
@@ -958,66 +1038,176 @@
       console.log("Max Tank " + f);
       // Sizing based on E <--> F Range
 
-      if(e >= 50 && f <= 91) {
-        // Compact \\
-        document.getElementById("results-product-name-one").innerHTML =  products[0].Name.toString();
+      function ResultsTableCustomError() {
+        document.getElementById("ResultsRowProductName").style.width = '150px';
+        //
+        document.getElementById("results-row-one").style.font = 'large';
+        document.getElementById("results-row-two").style.display = 'none';
+        document.getElementById("results-row-three").style.display = 'none';
+        document.getElementById("results-row-four").style.display = 'none';
+        //
+        document.getElementById("results-product-name-one").innerHTML = products[30].Name.toString();
+        document.getElementById("results-product-description-one").innerHTML = products[30].Description.toString();
+        document.getElementById("results-button-one").innerHTML = products[30].Button.toString();
+        document.getElementById("results-product-image-one").innerHTML = products[30].Image.toString();
+      }
+      function ResultsTable125CompactFixed0() {
+        document.getElementById("results-product-name-one").innerHTML = products[0].Name.toString();
         document.getElementById("results-product-description-one").innerHTML = products[0].Description.toString();
         document.getElementById("results-button-one").innerHTML = products[0].Button.toString();
         document.getElementById("results-product-image-one").innerHTML = products[0].Image.toString();
-        // Compact \\
+      }
+      function ResultsTable125CompactVariable1() {
+        document.getElementById("results-product-name-one").innerHTML = products[1].Name.toString();
+        document.getElementById("results-product-description-one").innerHTML = products[1].Description.toString();
+        document.getElementById("results-button-one").innerHTML = products[1].Button.toString();
+        document.getElementById("results-product-image-one").innerHTML = products[1].Image.toString();
+      }
+      function ResultsTable200SlimlineFixed2() {
+        document.getElementById("results-product-name-two").innerHTML = products[2].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[2].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[2].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[2].Image.toString();
+      }
+      function ResultsTable200SlimlineVariable3() {
+        document.getElementById("results-product-name-two").innerHTML = products[3].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[3].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[3].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[3].Image.toString();
+      }
+      function ResultsTable200CoffinFixed4() {
+        document.getElementById("results-product-name-three").innerHTML = products[4].Name.toString();
+        document.getElementById("results-product-description-three").innerHTML = products[4].Description.toString();
+        document.getElementById("results-button-three").innerHTML = products[4].Button.toString();
+        document.getElementById("results-product-image-three").innerHTML = products[4].Image.toString();
+      }
+      function ResultsTable200CoffinVariable5() {
+        document.getElementById("results-product-name-three").innerHTML = products[5].Name.toString();
+        document.getElementById("results-product-description-three").innerHTML = products[5].Description.toString();
+        document.getElementById("results-button-three").innerHTML = products[5].Button.toString();
+        document.getElementById("results-product-image-three").innerHTML = products[5].Image.toString();
+      }
+      function ResultsTable270CoffinFixed6() {
+        document.getElementById("results-product-name-one").innerHTML = products[6].Name.toString();
+        document.getElementById("results-product-description-one").innerHTML = products[6].Description.toString();
+        document.getElementById("results-button-one").innerHTML = products[6].Button.toString();
+        document.getElementById("results-product-image-one").innerHTML = products[6].Image.toString();
+      }
+      function ResultsTable270CoffinVariable7() {
+        document.getElementById("results-product-name-two").innerHTML = products[7].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[7].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[7].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[7].Image.toString();
+      }
+      function ResultsTable300RectangularFixed8() {
+        document.getElementById("results-product-name-two").innerHTML = products[8].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[8].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[8].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[8].Image.toString();
+      }
+      function ResultsTable300RectangularVariable9() {
+        document.getElementById("results-product-name-one").innerHTML = products[9].Name.toString();
+        document.getElementById("results-product-description-one").innerHTML = products[9].Description.toString();
+        document.getElementById("results-button-one").innerHTML = products[9].Button.toString();
+        document.getElementById("results-product-image-one").innerHTML = products[9].Image.toString();
+      }
+      function ResultsTable340CoffinFixed10() {
+        document.getElementById("results-product-name-two").innerHTML = products[10].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[10].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[10].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[10].Image.toString();
+      }
+      function ResultsTable340CoffinVariable11() {
+        document.getElementById("results-product-name-two").innerHTML = products[11].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[11].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[11].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[11].Image.toString();
+      }
+      function ResultsTable350SlimlineFixed12() {
+        document.getElementById("results-product-name-two").innerHTML = products[12].Name.toString();
+        document.getElementById("results-product-description-two").innerHTML = products[12].Description.toString();
+        document.getElementById("results-button-two").innerHTML = products[12].Button.toString();
+        document.getElementById("results-product-image-two").innerHTML = products[12].Image.toString();
+      }
+      function ResultsTable350SlimlineVariable13() {
+        document.getElementById("results-product-name-three").innerHTML = products[13].Name.toString();
+        document.getElementById("results-product-description-three").innerHTML = products[13].Description.toString();
+        document.getElementById("results-button-three").innerHTML = products[13].Button.toString();
+        document.getElementById("results-product-image-three").innerHTML = products[13].Image.toString();
+      }
+      function ResultsTable450CoffinFixed14() {
+        document.getElementById("results-product-name-four").innerHTML = products[14].Name.toString();
+        document.getElementById("results-product-description-four").innerHTML = products[14].Description.toString();
+        document.getElementById("results-button-four").innerHTML = products[14].Button.toString();
+        document.getElementById("results-product-image-four").innerHTML = products[14].Image.toString();
+      }
+      function ResultsTable450CoffinVariable15() {
+        document.getElementById("results-product-name-four").innerHTML = products[15].Name.toString();
+        document.getElementById("results-product-description-four").innerHTML = products[15].Description.toString();
+        document.getElementById("results-button-four").innerHTML = products[15].Button.toString();
+        document.getElementById("results-product-image-four").innerHTML = products[15].Image.toString();
+      }
+      console.log(e + "e");
+      console.log(f + "f");
 
-        // Coffin \\
-        document.getElementById("results-product-name-two").innerHTML =  products[4].Name.toString();
-        document.getElementById("results-product-description-two").innerHTML = products[4].Description.toString();
-        document.getElementById("results-button-two").innerHTML = products[4].Button.toString();
-        document.getElementById("results-product-image-two").innerHTML = products[4].Image.toString();
-        // Coffin \\
-
-        // Slimline \\
-        document.getElementById("results-product-name-three").innerHTML =  products[2].Name.toString();
-        document.getElementById("results-product-description-three").innerHTML = products[2].Description.toString();
-        document.getElementById("results-button-three").innerHTML = products[2].Button.toString();
-        document.getElementById("results-product-image-three").innerHTML = products[2].Image.toString();
-        // Slimline \\
+      function isBetween(n, a, b) {
+        return (n - a) * (n - b) <= 0
       }
 
-      if(e >= 150 && f <= 270) {
-        // Slimline \\
-        document.getElementById("results-product-name-one").innerHTML =  products[2].Name.toString();
-        document.getElementById("results-product-description-one").innerHTML = products[2].Description.toString();
-        document.getElementById("results-button-one").innerHTML = products[2].Button.toString();
-        document.getElementById("results-product-image-one").innerHTML = products[2].Image.toString();
-        // Slimline \\
-
-        // Coffin \\
-        document.getElementById("results-product-name-two").innerHTML =  products[4].Name.toString();
-        document.getElementById("results-product-description-two").innerHTML = products[4].Description.toString();
-        document.getElementById("results-button-two").innerHTML = products[4].Button.toString();
-        document.getElementById("results-product-image-two").innerHTML = products[4].Image.toString();
-        // Coffin \\
-
-        // Slimline \\
-        document.getElementById("results-product-name-three").innerHTML =  products[2].Name.toString();
-        document.getElementById("results-product-description-three").innerHTML = products[2].Description.toString();
-        document.getElementById("results-button-three").innerHTML = products[2].Button.toString();
-        document.getElementById("results-product-image-three").innerHTML = products[2].Image.toString();
-        // Slimline \\
+      //Custom Record
+      if (CombinedBSO < 3) {
+        if (e <= 0 && f <= 47) {
+          console.log("Tank Not Needed / Custom Application?");
+          ResultsTableCustomError();
+        }
       }
 
+      //Fixed
+      if (CombinedBSO < 3) {
+        if (e >= 1 && f < 91) {
+          console.log("fix 125-200");
+          ResultsTable125CompactFixed0();
+          ResultsTable200SlimlineFixed2();
+          ResultsTable200CoffinFixed4();
+        }
+      }
+      //Fixed
+      if (CombinedBSO < 3) {
+        if (e > 92 && f < 271) {
+          console.log("fix 200-270");
+          ResultsTable270CoffinFixed6();
+          ResultsTable200SlimlineFixed2();
+          ResultsTable200CoffinFixed4();
+        }
+      }
+
+            // Variable
+      if (CombinedBSO => 3) {
+        if (e > 100 && f < 450) {
+          console.log("Variable 100-240");
+          ResultsTable300RectangularVariable9();
+          ResultsTable340CoffinVariable11();
+          ResultsTable350SlimlineVariable13();
+        }
+      }
+
+      // Variable
+      if (CombinedBSO => 3) {
+        if (e > 200 && f < 500) {
+          console.log("Variable 300-450");
+          ResultsTable300RectangularVariable9();
+          ResultsTable340CoffinVariable11();
+          ResultsTable350SlimlineVariable13();
+          ResultsTable450CoffinVariable15();
+        }
+      }
+
+
+      // End of script
     }
 
   </script>
-
-<style>
-  .label {
-    color: white;
-    padding: 8px;
-    font-family: Arial;
-  }
-  .info {background-color: #2196F3;} /* Blue */
-  </style>
   <!-- Fifth Set of Cards -->
-
   <!-- Sixth Set of Cards -->
   <div id="SectionSix" style="display:none" class="card-deck card-deck-one">
     <div class="card">
@@ -1050,7 +1240,7 @@
           <h2 class="resultstitle" style="align-self: flex-start;">Our Recommendation</h2>
           <div class="resultstable">
             <div class="resultsrow resultsheader">
-              <div class="resultscell">Product Name</div>
+              <div id="ResultsRowProductName" class="resultscell">Product Name</div>
               <div class="resultscell">Description</div>
               <div class="resultscell">Photo</div>
               <div class="resultscell">Details</div>
@@ -1060,11 +1250,13 @@
 
               <div class="resultscell resultscellspace" id="results-product-name-one" data-title="Product Name"></div>
 
-              <div class="resultscell resultscellspace" id="results-product-description-one" data-title="Description"></div>
+              <div class="resultscell resultscellspace" id="results-product-description-one" data-title="Description">
+              </div>
 
               <div style="width: 150px;" class="resultscell" id="results-product-image-one" data-title="Photo"></div>
 
-              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-one" data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
+              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-one"
+                data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
 
             </div>
 
@@ -1072,11 +1264,13 @@
 
               <div class="resultscell resultscellspace" id="results-product-name-two" data-title="Product Name"></div>
 
-              <div class="resultscell resultscellspace" id="results-product-description-two" data-title="Description"></div>
+              <div class="resultscell resultscellspace" id="results-product-description-two" data-title="Description">
+              </div>
 
               <div style="width: 150px;" class="resultscell" id="results-product-image-two" data-title="Photo"></div>
 
-              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-two" data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
+              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-two"
+                data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
 
             </div>
 
@@ -1084,23 +1278,42 @@
 
               <div class="resultscell resultscellspace" id="results-product-name-three" data-title="Product Name"></div>
 
-              <div class="resultscell resultscellspace" id="results-product-description-three" data-title="Description"></div>
+              <div class="resultscell resultscellspace" id="results-product-description-three" data-title="Description">
+              </div>
 
               <div style="width: 150px;" class="resultscell" id="results-product-image-three" data-title="Photo"></div>
 
-              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-three" data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
+              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-three"
+                data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
 
             </div>
 
-            
+            <div id="results-row-four" style="margin-bottom: 10%;" class="resultsrow">
 
+              <div class="resultscell resultscellspace" id="results-product-name-four" data-title="Product Name"></div>
 
+              <div class="resultscell resultscellspace" id="results-product-description-four" data-title="Description">
+              </div>
 
+              <div style="width: 150px;" class="resultscell" id="results-product-image-four" data-title="Photo"></div>
+
+              <div style="width: 150px;" class="resultscell resultscellspace" id="results-button-four"
+                data-bs-toggle="modal" data-bs-target="#modalProductResults" data-title="Details"></div>
+
+            </div>
           </div>
-        </div>
 
+        </div>
+        <label id="GreaterThanThreeFloors" style="display:none" class="resultstitle info label"><i style="padding-right: 1%;
+          padding-top: 4px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>Notice: Since you have stated
+          that your property has more than three floors, please get in touch with us on this number: 123456789 to
+          discuss your requirements</label>
+        <label id="GreaterThanFivePeople" style="display:none" class="resultstitle info label"><i style="padding-right: 1%;
+          padding-top: 4px;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>Notice: Since you have stated
+          that your property has more than five people in it, please get in touch with us on this number: 123456789 to
+          discuss your requirements</label>
         <!-- Sixth Set of Cards -->
 
- 
+
 
 </body>
