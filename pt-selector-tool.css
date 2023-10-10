@@ -1191,7 +1191,7 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
-  /* Modal */
+  /* Modal  */
   .modal-padding-desktop {
     display: flex;
   }
