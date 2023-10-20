@@ -546,9 +546,79 @@ var onloadCallback = function () {
   </div>
     <!-- Modal - How Many BSO In Property  -->
 
-  <!-- Modal - Product Results Tab #1  -->
+  <!-- Modal - Product Results Compact  -->
   <!-- Call this ID  -->
-  <div class="modal fade" id="modalProductResults" tabindex="-1">
+  <div class="modal fade" id="modalProductCompact" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container">
+          <div style="align-items: center;" class="row">
+            <div class="col-xl">
+              <h2 style="margin-top: 2%;margin-bottom: 1%;margin-left: 2%;">POWERTANK Compact 125 Litre<div style="margin-left: 2%;margin-bottom: 5px;" class="btn-group">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Variations
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li id="PopupResultsDropdown1"><a  class="dropdown-item" aria-current="true" onClick="changeImageFixed();">Fixed Speed</a></li>
+                  <li id="PopupResultsDropdown2"><a  class="dropdown-item" onClick="changeImageVariable();">Variable Speed</a></li>
+                </ul>
+              </div></h2>
+            </div>
+          </div>
+            <div class="row">
+              <div style="align-self: center;margin-left: 2%;" class="col-xl">
+                <p style="font-size: large;">The POWERTANK COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.</p>
+              </div>
+            </div>
+            <div style="align-items: center;" class="row">
+              <div style="display: flex;flex-direction: row;flex-wrap: wrap;" class="col-xl">
+
+                <img id="ProductResultsPopUpImg" style="width:100%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Compact/Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>
+              </div>
+              <div style="align-self: center;" class="col-xl">
+                <iframe style="width: inherit;min-width: inherit;height: 505px;min-height: 505px;"src="/Selector/PTS_ResultsForm.html"></iframe>
+              </div>
+            </div>
+          </div>
+          <script>
+            function changeImageFixed()
+            {
+              var img = document.getElementById("ProductResultsPopUpImg");
+              img.src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Compact/Powertank-Compact-125ltr-F-Water-Boosting-System.webp";
+              //
+              $("PopupResultsDropdown2").on("click", function() {
+              $("PopupResultsDropdown1").removeClass("active");
+              $("PopupResultsDropdown1").addClass("active");
+              });
+              //
+              return false;
+            }
+            function changeImageVariable()
+            {
+              var img = document.getElementById("ProductResultsPopUpImg");
+              img.src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Coffin/Powertank-Coffin-200ltr-Fixed-Speed-Water-Boosting-System.webp";
+              // 
+              $("PopupResultsDropdown1").on("click", function() {
+                $("PopupResultsDropdown2").removeClass("active");
+                $("PopupResultsDropdown2").addClass("active");
+              });
+              // 
+              return false;
+            }
+            </script>
+        </div>
+        <div class="modal-footer">
+          <button style="margin-right: 2%;" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal - Product Results Compact  -->
+
+  <!-- Modal - Product Results Slimline 200  -->
+  <!-- Call this ID  -->
+  <div class="modal fade" id="modalProductSlimline200" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
       <div class="modal-content">
         <div class="modal-body">
@@ -567,7 +637,8 @@ var onloadCallback = function () {
       </div>
     </div>
   </div>
-  <!-- Modal - Product Results Tab #1  -->
+     <!-- Modal - Product Results Slimline 200  -->
+
 
 
   <!-- Modal Section - The modal is a popup window. This popup occurs when a user clicks on the ? button. -->
@@ -717,7 +788,6 @@ var onloadCallback = function () {
         $("#StageZeroContinueBtn").click(function () {
         $("html, body").scrollTop($(ReturnToTop).offset().top);
         $("#SectionZero").fadeOut("fast, linear");
-        AddToArray("Combination Boiler");
         $("#SectionOne").delay(400).fadeIn("fast, linear");
       });
       // ---------------------------------------- \\
@@ -1239,13 +1309,13 @@ var onloadCallback = function () {
 
       var products = [
         // 125 LTR Fixed Compact \\
-        { "ID": "0", "Name": "POWERTANK 125ltr Compact Fixed Speed Pump", "Description": "The Powertank COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.", "[1] Range": "60-90 LTR", "Image": '<img style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Compact/Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton">More Information</button>' },
+        { "ID": "0", "Name": '<div data-bs-toggle="modal" data-bs-target="#modalProductCompact">POWERTANK 125ltr Compact Fixed Speed Pump</div>', "Description": '<div data-bs-toggle="modal" data-bs-target="#modalProductCompact">The Powertank COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.', "[1] Range": "60-90 LTR", "Image": '<img data-bs-toggle="modal" data-bs-target="#modalProductCompact" style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Compact/Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton">More Information</button>' },
 
         // 125 LTR Variable Compact \\
-        { "ID": "1", "Name": "POWERTANK 125ltr Compact Variable Speed Pump", "Description": "The Powertank COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.", "[1] Range": "60-90 LTR", "Image": '<img style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Compact/Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton">More Information</button>' },
+        { "ID": "1", "Name": '<div data-bs-toggle="modal" data-bs-target="#modalProductCompact">POWERTANK 125ltr Compact Variable Speed Pump</div>', "Description": '<div data-bs-toggle="modal" data-bs-target="#modalProductCompact">The Powertank COMPACT Water Pressure Booster has been specifically designed for smaller properties with low water pressure and flow and where space is at a premium e.g. apartments, cottages, townhouses.</div>', "[1] Range": "60-90 LTR", "Image": '<img data-bs-toggle="modal" data-bs-target="#modalProductCompact" style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Compact/Powertank-Compact-125ltr-F-Water-Boosting-System.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton">More Information</button>' },
 
         // 200 LTR Fixed Slimline \\
-        { "ID": "2", "Name": "POWERTANK 200ltr Slimline Fixed Speed Pump", "Description": "The Powertank Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "[1] Range": "180-270 LTR", "Image": '<img style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Slimline/Powertank-Dual-Slimline-Fixed-Speed-Water-Boosting-System-400.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton">More Information</button>' },
+        { "ID": "2", "Name": "POWERTANK 200ltr Slimline Fixed Speed Pump", "Description": "The Powertank Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "[1] Range": "180-270 LTR", "Image": '<img data-bs-toggle="modal" data-bs-target="#modalProductSlimline200" style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Slimline/Powertank-Dual-Slimline-Fixed-Speed-Water-Boosting-System-400.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton">More Information</button>' },
 
         // 200 LTR Variable Slimline \\
         { "ID": "3", "Name": "POWERTANK 200ltr Slimline Variable Speed Pump", "Description": "The Powertank Slimline range can fit through a standard doorway. This makes it very convenient for new or existing properties as it can be easily fitted under stairs, in a garage, or in a utility room.", "[2] Range": "180-270 LTR", "Image": '<img style="width:90%;"src="https://cdn241.s3.eu-west-2.amazonaws.com/PedrolloDistribution/Images/SelectorTool/Images/result-images/Slimline/Powertank-Dual-Slimline-Variable-Speed-Water-Boosting-System-400.webp"/>', "Button": '<button disabled style="padding-left: 5%;padding-right: 5%;font-size: inherit;" data-bs-toggle="modal" data-bs-target="#modalProductResults" class="cell btn btn-default continueButton" >More Information</button>' },
@@ -2419,7 +2489,7 @@ var onloadCallback = function () {
         </table>
         </div>
         <!--  -->
-        <div class="table-responsive-sm">
+        <div class="table-responsive-lg">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -2472,6 +2542,8 @@ var onloadCallback = function () {
           </div>
       </div>
     </div>
+
+
 
 
 </body>
