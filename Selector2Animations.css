@@ -1,0 +1,14 @@
+.Section-fade-out {
+  animation: opacity 2s both;
+
+  @keyframes opacity {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+
+    }
+  }
+}
